@@ -1,10 +1,14 @@
 import React from "react";
 
 
-function Box(props) {
+function Box({ backgroundColor, height, width, id, removeBox }) {
+
+  const style = { backgroundColor, height, width };
 
   return (
-    <div style={props}>
+    <div>
+      <div style={style}></div>
+      <button onClick={() => removeBox(id)}>X</button>
     </div>
   )
 }
