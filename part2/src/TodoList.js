@@ -14,13 +14,13 @@ function TodoList() {
 
   const editTodo = (id, newTask) => {
     setTodos(todos => {
-      let newTodos = [...todos]
+      let newTodos = [...todos];
       for (let todo of newTodos){
         if (todo.id===id){
-          todo.task = newTask
+          todo.task = newTask;
         }
       }
-      return newTodos
+      return newTodos;
     })
   }
 

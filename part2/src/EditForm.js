@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function EditForm({ id, editTodo, task }) {
+function EditForm({ id, editTodo, task, showEditForm }) {
   const intialState = { newTask: task };
   const [formData, setFormData] = useState(intialState);
 
@@ -8,6 +8,7 @@ function EditForm({ id, editTodo, task }) {
     evt.preventDefault();
     editTodo(id,formData.newTask);
     setFormData({newTask: ""});
+    showEditForm();
   }
 
   const handleChange = (evt) => {
@@ -26,7 +27,7 @@ function EditForm({ id, editTodo, task }) {
         value={formData.newTask}
         onChange={handleChange}
       />
-      <button>edit task!</button>
+      <button>save task!</button>
     </form>
   );
 }

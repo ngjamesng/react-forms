@@ -7,7 +7,7 @@ function Todo({ task, id, editTodo, removeTodo }) {
   const [showEdit, setShowEdit] = useState(false);
 
   const showEditForm = () => {
-    setShowEdit(!showEdit)
+    setShowEdit((showEdit)=>!showEdit)
   }
 
   return (
@@ -15,7 +15,9 @@ function Todo({ task, id, editTodo, removeTodo }) {
       <p> {`Task: ${task}`} </p>
       <button onClick={() => removeTodo(id)}>X</button>
       <button onClick={showEditForm}>Edit</button>
-      {showEdit ? <EditForm id={id} editTodo={editTodo} task={task}/> : null}
+      {showEdit 
+      ? <EditForm id={id} editTodo={editTodo} task={task} showEditForm={showEditForm}/> 
+      : null}
     </li>
   )
 }
