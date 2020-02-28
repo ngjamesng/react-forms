@@ -13,16 +13,30 @@ function TodoList() {
   }
 
   const editTodo = (id, newTask) => {
-    setTodos(todos => {
-      let newTodos = [...todos];
-      for (let todo of newTodos){
-        if (todo.id===id){
-          todo.task = newTask;
-        }
-      }
-      return newTodos;
-    })
-  }
+    // setTodos(todos => {
+    //   let newTodos = [...todos];
+    //   for (let todo of newTodos){
+    //     if (todo.id===id){
+    //       todo.task = newTask;
+    //     }
+    //   }
+    //   return newTodos;
+    // })
+
+
+    //map over each old todo
+      //if matches ID,
+        //make a copy of the oldTodo, update the task and return the updated copy
+      // otherwise, return a copy of the todo 
+    setTodos(oldTodos =>
+      oldTodos.map(oldTodo => (
+        oldTodo.id === id 
+        ? { ...oldTodo, task: newTask } 
+        : { ...oldTodo }
+        )
+      )
+    );
+  };
 
 
   const removeTodo = id => {
